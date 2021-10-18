@@ -1,11 +1,11 @@
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 body {
     font-family: 'Circular Std Book';
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    color: #71748d;
-    background-color: #0d0db1;
+    color: #ffffff;
+    background-color: #5a5aee;
     -webkit-font-smoothing: antialiased;
 }
 

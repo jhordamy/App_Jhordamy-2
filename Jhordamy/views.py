@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import login_required
 
 def login_view(request):
     if request.user.is_authenticated:
-        return HttpResponseRedirect('/listaCliente/')
+        return HttpResponseRedirect('/home/')
     else:
         if request.method == 'POST':
             form = LoginForm(request.POST)
@@ -26,14 +26,14 @@ def login_view(request):
                 usuario = authenticate(username=username, password=password)
                 if usuario is not None and usuario.is_active:
                     login(request, usuario)
-                    return HttpResponseRedirect('/listaCliente/')
+                    return HttpResponseRedirect('/home/')
         form = LoginForm()
         ctx = {'form': form}
-        return render(request, 'Login/login/', ctx)
+        return render(request, './Login/login.html' , ctx)
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('/login/')
+    return HttpResponseRedirect('/')
 
 
 @login_required(login_url='/login/')
