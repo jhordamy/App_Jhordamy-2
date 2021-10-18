@@ -65,7 +65,7 @@ class CategoriaForm(forms.ModelForm):
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = ['nombre', 'apellido', 'cedula', 'direccion', 'celular']
+        fields = ['nombre', 'categoria', 'proveedor', 'descripcion', 'precio']
         labels = {
             'nombre': 'Nombres Completos',
             'categoria': 'Categorias',

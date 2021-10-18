@@ -31,7 +31,7 @@ class Proveedor(models.Model):
         verbose_name_plural = 'Proveedores'
 
         def __str__(self):
-            return self.nombre + ' ' + self.apellido
+            return self.nombre
 
 class Categoria(models.Model):
     id = models.AutoField(primary_key=True)
@@ -44,13 +44,13 @@ class Categoria(models.Model):
         verbose_name_plural = 'Categorias'
 
         def __str__(self):
-            return self.nombre + ' ' + self.descripcion        
+            return self.nombre     
 
 class Producto(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=225, blank=False, unique=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, default=' ')
-    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE, default='available')    
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)    
     descripcion = models.TextField(max_length=225, blank=False, null=False)
     precio = models.DecimalField(max_digits=5, decimal_places=2) 
 

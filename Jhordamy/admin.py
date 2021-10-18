@@ -11,11 +11,11 @@ class ProveedorAdmin(admin.ModelAdmin):
     search_fields = ['cedula']
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'proveedor', 'categoria', 'descripcion', 'precio')
+    list_display = ('nombre', 'categoria', 'proveedor', 'descripcion', 'precio')
     search_fields = ['nombre']
 
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'descripcion')
+    list_display = ('nombre', 'descripcion') 
     search_fields = ['nombre']
 
 admin.site.register(Cliente,ClienteAdmin)
