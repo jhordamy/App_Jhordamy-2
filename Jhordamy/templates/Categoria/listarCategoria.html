@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <h2 class="modal-title">Listado de Categorias</h2>
+        <button class="close" type="button" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <form action="{% url 'crear_categoria' %}" method="POST">
+            {% csrf_token %}
+            <div class="modal-body">
+                {{ form.as_p }}
+            </div>
+    </div> 
+</div>
+=======
 {% extends 'Login/base.html' %}
 {% block titulo %}
 Listado de Categoria
@@ -66,3 +81,4 @@ Listado de Categoria
     }
 </script>
 {% endblock extrajs %}
+>>>>>>> 40ab77a83db2d8bdb77cc640d40ce1e13295583a

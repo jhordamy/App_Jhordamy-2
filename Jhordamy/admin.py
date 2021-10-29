@@ -11,7 +11,7 @@ class ProveedorAdmin(admin.ModelAdmin):
     search_fields = ['cedula']
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'categoria', 'proveedor', 'descripcion', 'precio', )
+    list_display = ('nombre', 'categoria', 'proveedor', 'descripcion', 'precio')
     search_fields = ['nombre']
 
 class CategoriaAdmin(admin.ModelAdmin):

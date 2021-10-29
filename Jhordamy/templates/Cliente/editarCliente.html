@@ -4,9 +4,14 @@
         <button class="close" type="button" data-dismiss="modal" aria-label="close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <form action="{% url 'crear_clientes' %}" method="POST">
+        <form action="{% url 'editar_cliente' %}" method="POST">
             {% csrf_token %}
             <div class="modal-body">
                 {{ form.as_p }}
+                <div class="container">
+                    <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                </div>
             </div>
+        </form>
+    </div>
 </div>

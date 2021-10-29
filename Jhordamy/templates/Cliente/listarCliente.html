@@ -1,21 +1,18 @@
-{% extends 'Login/base.html' %}
-{% block titulo %}
-Listado de Clientes
-{% endblock titulo %}
+{% extends 'base.html' %}
 {% block body %}
 <div>
-    <button class="btn btn-primary" type="button" onclick="abrir_modal_creacion('{% url 'nuevoCliente' %}')">
+    <button class="btn btn-primary rounded m-2" type="button" onclick="abrir_modal_creacion('{% url 'crear_cliente' %}')">
         Nuevo Cliente
     </button>
-<div>
+</div>
 {% if clientes %}
-<div class="container card">
-    </div class="card-header">
+<div class="card">
+    <div class="card-header">
         <strong class="card-title">Litado de Clientes</strong>
     </div>
     <div class="table-stats order-table ov-h">
         <table class="table">
-            <head>
+            <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Apellidos</th>
@@ -23,23 +20,25 @@ Listado de Clientes
                     <th>Direccion</th>
                     <th>Celular</th>
                     <th>Opciones</th>
-                </head>
+                </tr>
             </thead>
             <tbody>
                 {% for p in clientes %}
                 <tr>
-                    <td>{{p.nombre}}</td>
-                    <td>{{p.apellido}}</td>
-                    <td>{{p.cedula}}</td>
-                    <td>{{p.direccion}}</td>
-                    <td>{{p.celular}}</td>
-
+                    <td style="color: black;">{{p.nombre}}</td>
+                    <td style="color: black;">{{p.apellido}}</td>
+                    <td style="color: black;">{{p.cedula}}</td>
+                    <td style="color: black;">{{p.direccion}}</td>
+                    <td style="color: black;">{{p.celular}}</td>
                     <td>
-                        <button class="btn btn-primary" type="button"onclick="">
-                            Cliente Actualizado
+                        <button class="btn btn-warning rounded" type="button" onclick="abrir_modal_edicion('{% url 'editar_cliente' p.id %}')">
+                            Editar
                         </button>
-                    </td>>
-                </tr>>
+                        <button class="btn btn-danger rounded" type="button" >
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
@@ -52,15 +51,14 @@ Listado de Clientes
 </div>
 <div class="modal face" id="edicion" role="dialog">
 </div>
-{% endblock body %}
 
 {% block extrajs %}
 <script type="text/javascript">
     var $ = jQuery.noConflict();
     function abrir_modal_creacion(url){
         $('#creacion').load(url, function(){
-            $(this).modal('show');
-        });
+            $(this).modal('show')
+        })
     }
     function abrir_modal_edicion(url){
         $('#edicion').load(url, function(){
@@ -69,5 +67,5 @@ Listado de Clientes
     }
 </script>
 {% endblock extrajs %}
-
+{% endblock body %}
 
