@@ -25,11 +25,11 @@
             <tbody>
                 {% for p in clientes %}
                 <tr>
-                    <td>{{p.nombre}}</td>
-                    <td>{{p.apellido}}</td>
-                    <td>{{p.cedula}}</td>
-                    <td>{{p.direccion}}</td>
-                    <td>{{p.celular}}</td>
+                    <td style="color: black;">{{p.nombre}}</td>
+                    <td style="color: black;">{{p.apellido}}</td>
+                    <td style="color: black;">{{p.cedula}}</td>
+                    <td style="color: black;">{{p.direccion}}</td>
+                    <td style="color: black;">{{p.celular}}</td>
                     <td>
                         <button class="btn btn-warning rounded" type="button" onclick="abrir_modal_edicion('{% url 'editar_cliente' p.id %}')">
                             Editar
