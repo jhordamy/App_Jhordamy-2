@@ -1,2 +1,2 @@
-# Aplicacion-Django
-CRUD con Django en Entornos Virtuales
+# App_Jhordamy-2
+Aplicación con Entornos Virtuales

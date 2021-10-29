@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
         <h2 class="modal-title">Listado de Productos</h2>
@@ -11,3 +12,73 @@
             </div>
     </div> 
 </div>
+=======
+{% extends 'Login/base.html' %}
+{% block titulo %}
+Listado de Productos
+{% endblock titulo %}
+{% block body %}
+<div>
+    <button class="btn btn-primary" type="button" onclick="abrir_modal_creacion('{% url 'nuevoProducto' %}')">
+        Nuevo Producto
+    </button>
+<div>
+{% if productos %}
+<div class="container card">
+    </div class="card-header">
+        <strong class="card-title">Litado de Productos</strong>
+    </div>
+    <div class="table-stats order-table ov-h">
+        <table class="table">
+            <head>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Descripcion</th>
+                    <th>Opciones</th>
+                </head>
+            </thead>
+            <tbody>
+                {% for p in Productos%}
+                <tr>
+                    <td>{{p.nombre}}</td>
+                    <td>{{p.acategoria}}</td>
+                    <td>{{p.descripcion}}</td>
+                    <td>{{p.opcion}}</td>
+
+                    <td>
+                        <button class="btn btn-primary" type="button"onclick="">
+                            Producto Actualizado
+                        </button>
+                    </td>>
+                </tr>>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<h1>No Existen Productos Registrados</h1>
+{% endif %}
+<div class="modal face" id="creacion" role="dialog">
+</div>
+<div class="modal face" id="edicion" role="dialog">
+</div>
+{% endblock body %}
+
+{% block extrajs %}
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    function abrir_modal_creacion(url){
+        $('#creacion').load(url, function(){
+            $(this).modal('show');
+        });
+    }
+    function abrir_modal_edicion(url){
+        $('#edicion').load(url, function(){
+            $(this).modal('show')
+        })
+    }
+</script>
+{% endblock extrajs %}
+>>>>>>> 40ab77a83db2d8bdb77cc640d40ce1e13295583a
