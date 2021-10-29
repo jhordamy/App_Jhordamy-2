@@ -1,0 +1,73 @@
+{% extends 'Login/base.html' %}
+{% block titulo %}
+Listado de Clientes
+{% endblock titulo %}
+{% block body %}
+<div>
+    <button class="btn btn-primary" type="button" onclick="abrir_modal_creacion('{% url 'nuevoCliente' %}')">
+        Nuevo Cliente
+    </button>
+<div>
+{% if clientes %}
+<div class="container card">
+    </div class="card-header">
+        <strong class="card-title">Litado de Clientes</strong>
+    </div>
+    <div class="table-stats order-table ov-h">
+        <table class="table">
+            <head>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Cedula</th>
+                    <th>Direccion</th>
+                    <th>Celular</th>
+                    <th>Opciones</th>
+                </head>
+            </thead>
+            <tbody>
+                {% for p in clientes %}
+                <tr>
+                    <td>{{p.nombre}}</td>
+                    <td>{{p.apellido}}</td>
+                    <td>{{p.cedula}}</td>
+                    <td>{{p.direccion}}</td>
+                    <td>{{p.celular}}</td>
+
+                    <td>
+                        <button class="btn btn-primary" type="button"onclick="">
+                            Cliente Actualizado
+                        </button>
+                    </td>>
+                </tr>>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<h1>No Existen Cliente Registrados</h1>
+{% endif %}
+<div class="modal face" id="creacion" role="dialog">
+</div>
+<div class="modal face" id="edicion" role="dialog">
+</div>
+{% endblock body %}
+
+{% block extrajs %}
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    function abrir_modal_creacion(url){
+        $('#creacion').load(url, function(){
+            $(this).modal('show');
+        });
+    }
+    function abrir_modal_edicion(url){
+        $('#edicion').load(url, function(){
+            $(this).modal('show')
+        })
+    }
+</script>
+{% endblock extrajs %}
+
+
